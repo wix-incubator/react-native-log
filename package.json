@@ -1,0 +1,28 @@
+{
+  "name": "react-native-log",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wix/react-native-log.git"
+  },
+  "version": "0.0.1",
+  "description": "React Native Logger",
+  "nativePackage": true,
+  "bugs": {
+    "url": "https://github.com/wix/react-native-log/issues"
+  },
+  "homepage": "https://github.com/wix/react-native-log",
+  "main": "index.js",
+  "author": "Tal Kol <talkol@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": ">=0.19.0"
+  },
+  "dependencies": {
+    "jsan": "^2.0.4",
+    "querystring": "^0.2.0",
+    "socketcluster-client": "^4.3.7"
+  }
+}
