@@ -28,7 +28,8 @@ class example extends Component {
 }
 
 function showWarning(warning) {
-  //console.warn(warning);
+  console.warn(warning);
+  console.error('this is an example error');
 }
 
 setImmediate(() => showWarning('some warning'));

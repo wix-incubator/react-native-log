@@ -8,12 +8,14 @@ const parseErrorStack = require('react-native/Libraries/JavaScriptAppEngine/Init
 const sourceMapsCache = require('react-native/Libraries/JavaScriptAppEngine/Initialization/SourceMapsCache');
 
 const REDUCE_STACK_BY = {
-  error: 5,
+  error_warning: 5,
+  error: 3,
   warn: 3,
   log: 2
 };
 
 const MESSAGE_TYPES = {
+  error_warning: 'LOG_ERROR',
   error: 'LOG_ERROR',
   warn: 'LOG_WARN',
   log: 'LOG_LOG'
@@ -37,6 +39,9 @@ function reportConsole(type, timestamp, args) {
 async function reportConsoleAsync(type, timestamp, args, e) {
   let line;
   let stack;
+  if (args[0] && args[0].toString().startsWith('Warning: ')) {
+    type = 'error_warning';
+  }
   if (e) {
     const sourceMaps = await sourceMapsCache.getSourceMaps();
     const prettyStack = parseErrorStack(e, sourceMaps);
